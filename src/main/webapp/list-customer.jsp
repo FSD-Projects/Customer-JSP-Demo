@@ -4,7 +4,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +23,7 @@
 	<h3>Customer Relationship Management</h3>
 	<a href="add-customer.jsp"><button>Add Customer</button></a>
 	<%
-		CustomerDAO dao = new CustomerDAOImpl();
-		List<Customer> list = dao.getAllCustomers();	
+		
 	%>
 	<table class="table">
 		<thead class="black white-text">
@@ -36,15 +36,25 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<c:forEach var="customer" items="${list}">
-					<td scope="row">${customer.id}</td>
-					<td><c:out value="${customer.fName}"/></td>
-					<td><c:out value="${customer.lName}"/></td>
-					<td><c:out value="${customer.address}"/></td>
-					<td><c:out value="${customer.customerType}"/></td>
-				</c:forEach>
-			</tr>
+				<!--<c:forEach var="customer" items="${list}">
+					<td scope="row"><c:out value="${customer.id}" /></td>
+					<td><c:out value="${customer.fName}" /></td>
+					<td><c:out value="${customer.lName}" /></td>
+					<td><c:out value="${customer.address}" /></td>
+					<td><c:out value="${customer.customerType}" /></td>
+				</c:forEach>-->
+				<% 
+				CustomerDAO dao = new CustomerDAOImpl();
+				List<Customer> list = dao.getAllCustomers();
+				for(Customer c: list) { %>
+					<tr>
+					<td><%=c.getId()%></td>
+					<td><%=c.getFName()%></td>
+					<td><%=c.getLName()%></td>
+					<td><%=c.getAddress()%></td>
+					<td><%=c.getCustomerType()%></td>
+					</tr>
+				<%} %>
 		</tbody>
 	</table>
 </body>

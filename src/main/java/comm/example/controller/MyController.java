@@ -49,7 +49,7 @@ public class MyController extends HttpServlet {
 			errors.add("Last name cannot be null or less than 5 chars");
 		}
 		address = request.getParameter("address");
-		if ((address == null)) {
+		if ((address.length()) < 0) {
 			errors.add("Enter address");
 		}
 		customerType = request.getParameter("custType");

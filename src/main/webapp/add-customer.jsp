@@ -14,8 +14,8 @@
 			for (String str : list) {
 				out.println("<font color='red'>" + str + "<br/>");
 			}
+			out.println("</font>");
 		}
-		out.println("</font>");
 	%>
 	<h2>Index Page</h2>
 	<form action="controller.do" method="post">

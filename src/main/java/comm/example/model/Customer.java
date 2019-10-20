@@ -26,7 +26,13 @@ public class Customer {
 	private String fName;
 	@Column(name = "last_name")
 	private String lName;
-	
+	@Column(name = "address")
+	private String address;
+	@Column(name = "customer_type")
+	private String customerType;
+	@Version
+	private int version;
+
 	public Customer(String fName, String lName, String address, String customerType) {
 		super();
 		this.fName = fName;
@@ -34,11 +40,5 @@ public class Customer {
 		this.address = address;
 		this.customerType = customerType;
 	}
-	@Column(name = "address")
-	private String address;
-	@Column(name = "customer_type")
-	private String customerType;
-	@Version
-	private int version;
-	
+
 }

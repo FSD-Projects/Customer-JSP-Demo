@@ -17,7 +17,7 @@
 	crossorigin="anonymous">
 
 <link type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/style.css" />
+	href="${pageContext.request.contextPath}/resources/css/styles.css" />
 </head>
 <body>
 	<h3>Customer Relationship Management</h3>
@@ -36,13 +36,13 @@
 			</tr>
 		</thead>
 		<tbody>
-				<!--<c:forEach var="customer" items="${list}">
+				<%-- <c:forEach var="customer" items="${list}">
 					<td scope="row"><c:out value="${customer.id}" /></td>
 					<td><c:out value="${customer.fName}" /></td>
 					<td><c:out value="${customer.lName}" /></td>
 					<td><c:out value="${customer.address}" /></td>
 					<td><c:out value="${customer.customerType}" /></td>
-				</c:forEach>-->
+				</c:forEach> --%>
 				<% 
 				CustomerDAO dao = new CustomerDAOImpl();
 				List<Customer> list = dao.getAllCustomers();

@@ -49,7 +49,7 @@ public class MyController extends HttpServlet {
 			errors.add("Last name cannot be null or less than 5 chars");
 		}
 		address = request.getParameter("address");
-		if ((address.length()) < 0) {
+		if ((address.equals(""))) {
 			errors.add("Enter address");
 		}
 		customerType = request.getParameter("custType");
@@ -61,7 +61,7 @@ public class MyController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("add-customer.jsp");
 			rd.forward(request, response);
 		} else {
-			Customer c =  new Customer(fName, lName, address, customerType);
+			Customer c = new Customer(fName, lName, address, customerType);
 			request.setAttribute("SUCCESS", c);
 			CustomerDAO dao = new CustomerDAOImpl();
 			dao.createCustomer(c);
